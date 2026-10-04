@@ -1,0 +1,335 @@
+{
+  "groups": [
+    {
+      "code": "SERVER / PROXY",
+      "description": "Ядра, прокси и окружение Minecraft-сетей.",
+      "items": [
+        "Minecraft",
+        "Paper",
+        "Leaf",
+        "Purpur",
+        "Spigot",
+        "Bukkit API",
+        "Velocity",
+        "BungeeCord",
+        "Fabric",
+        "Polymer",
+        "Pterodactyl",
+        "Linux",
+        "Windows Server"
+      ],
+      "title": "Серверы и инфраструктура",
+      "titleEn": "Servers & infrastructure"
+    },
+    {
+      "code": "PLUGINS / CORE",
+      "description": "Основные плагины, которые я устанавливал, связывал и настраивал.",
+      "items": [
+        "LuckPerms",
+        "PlaceholderAPI",
+        "Vault",
+        "AuthMe",
+        "TAB",
+        "DeluxeHub",
+        "LibertyBans",
+        "CoreProtect",
+        "GrimAC",
+        "SkinsRestorer",
+        "WorldEdit",
+        "WorldGuard",
+        "Multiverse-Core",
+        "Citizens",
+        "Plan"
+      ],
+      "title": "Плагины, с которыми работал",
+      "titleEn": "Plugins I have worked with"
+    },
+    {
+      "code": "FUNTIME / GAMEPLAY",
+      "description": "Плагины и механики из моей неофициальной копии сервера в стиле FunTime.",
+      "items": [
+        "FunRTP",
+        "BMenu",
+        "BCases",
+        "PlayerPoints",
+        "/free rewards",
+        "Playtime tracking",
+        "Промокоды",
+        "Кейсы и токены",
+        "GUI-меню",
+        "Экономика и магазины",
+        "RTP по структурам"
+      ],
+      "title": "Игровые механики",
+      "titleEn": "Gameplay systems"
+    },
+    {
+      "code": "SOCIAL / COMMUNITY",
+      "description": "Системы для игроков, команды и сообщества сервера.",
+      "items": [
+        "Simple Voice Chat",
+        "Emotecraft",
+        "GSit",
+        "Профили игроков",
+        "Роли",
+        "Чат",
+        "Поселения",
+        "События",
+        "Квесты",
+        "Модерация"
+      ],
+      "title": "Игроки и сообщество",
+      "titleEn": "Players & community"
+    },
+    {
+      "code": "DEVELOPMENT",
+      "description": "Языки и фреймворки, с которыми работал в серверных и веб-проектах.",
+      "items": [
+        "Python",
+        "Discord.py",
+        "JavaScript",
+        "TypeScript",
+        "Java (базовый / basic)",
+        "Skript",
+        "SkBee",
+        "HTML",
+        "CSS",
+        "Vue.js",
+        "React",
+        "Next.js",
+        "Node.js",
+        "REST API"
+      ],
+      "title": "Разработка и сайты",
+      "titleEn": "Development & websites"
+    },
+    {
+      "code": "INTEGRATIONS",
+      "description": "Связь Minecraft, Discord и внутренних сервисов проекта.",
+      "items": [
+        "Discord API",
+        "Minecraft ↔ Discord",
+        "Webhooks",
+        "Верификация",
+        "Синхронизация ролей",
+        "Тикеты",
+        "Components V2",
+        "Уведомления",
+        "Чат-логи",
+        "Plugin Messaging"
+      ],
+      "title": "Интеграции и боты",
+      "titleEn": "Integrations & bots"
+    },
+    {
+      "code": "DATA / CONFIG",
+      "description": "Хранение данных, конфигурации и обмен между сервисами.",
+      "items": [
+        "MySQL",
+        "MariaDB",
+        "SQLite",
+        "Redis",
+        "Drizzle ORM",
+        "YAML",
+        "JSON",
+        "SQL migrations",
+        "Конфиги плагинов",
+        "Резервные копии"
+      ],
+      "title": "Данные и конфигурации",
+      "titleEn": "Data & configuration"
+    },
+    {
+      "code": "MODDING",
+      "description": "Серверные моды, ресурсы и изменение игровой логики.",
+      "items": [
+        "Fabric API",
+        "Polymer Core",
+        "Mixins",
+        "Resource Pack",
+        "Server-side effects",
+        "Custom assets",
+        "Gradle",
+        "Java 21"
+      ],
+      "title": "Моды и ресурсы",
+      "titleEn": "Mods & resources"
+    },
+    {
+      "code": "BUILD / TOOLS",
+      "description": "Сборка, тестирование, публикация и поиск проблем.",
+      "items": [
+        "Git",
+        "GitHub",
+        "Maven",
+        "Gradle",
+        "npm",
+        "Vite",
+        "JUnit",
+        "Cloudflare Workers",
+        "Logs",
+        "Debugging",
+        "Unit tests",
+        "Deploy"
+      ],
+      "title": "Сборка и диагностика",
+      "titleEn": "Build & diagnostics"
+    },
+    {
+      "code": "OWN DEVELOPMENT",
+      "description": "Собственные и доработанные плагины, модули и проекты.",
+      "items": [
+        "RTPFix",
+        "APVE Chat Filter",
+        "GreenHungerEffect",
+        "WESTCORE",
+        "AxoSquad Verification",
+        "PULSEGUARD",
+        "NODEBRIDGE",
+        "FREE Rewards",
+        "Discord Systems",
+        "Promo Systems"
+      ],
+      "title": "Собственная разработка",
+      "titleEn": "Custom development"
+    }
+  ],
+  "projects": [
+    {
+      "id": "rtpfix",
+      "name": "RTPFix",
+      "category": "Minecraft",
+      "description": "Телепортация к Ancient City и Trial Chambers: случайная структура, безопасная точка и разброс вокруг неё.",
+      "descriptionEn": "Teleportation to Ancient Cities and Trial Chambers, with random selection, safe landing and configurable spread.",
+      "stack": "Java / Paper API / Leaf 1.21.4 / Multiverse",
+      "visible": true,
+      "state": "completed"
+    },
+    {
+      "id": "free",
+      "name": "FREE Rewards",
+      "category": "Minecraft",
+      "description": "GUI наград за время игры. Сохранение прогресса и защита от повторной выдачи.",
+      "descriptionEn": "Playtime rewards GUI with saved progress and duplicate-claim protection.",
+      "stack": "Skript / YAML / BCases / PlayerPoints",
+      "visible": true,
+      "state": "completed"
+    },
+    {
+      "id": "promos",
+      "name": "Promo Systems",
+      "category": "Minecraft",
+      "description": "Промокоды с общими лимитами, одной активацией на игрока и выдачей кейсов и токенов.",
+      "descriptionEn": "Promo codes with global limits, one claim per player and automatic case / token rewards.",
+      "stack": "Skript / BCases / PlayerPoints",
+      "visible": true,
+      "state": "completed"
+    },
+    {
+      "id": "discord",
+      "name": "Discord Systems",
+      "category": "Systems",
+      "description": "Боты, тикеты, заявки, верификация, Components V2 и автоматизация ролей.",
+      "descriptionEn": "Bots, tickets, applications, verification, Components V2 and role automation.",
+      "stack": "Python / Discord.py / Discord API / Webhooks",
+      "visible": true,
+      "state": "completed"
+    },
+    {
+      "id": "staffcore",
+      "name": "StaffCore",
+      "category": "Minecraft",
+      "description": "Инструменты команды сервера: роли, модерация и управление персоналом.",
+      "descriptionEn": "Server staff tools for roles, moderation and personnel workflows.",
+      "stack": "Java / Paper / Permissions",
+      "visible": true,
+      "state": "active"
+    },
+    {
+      "id": "web",
+      "name": "Veyl / Web",
+      "category": "Web",
+      "description": "Этот сайт: свой стиль, лёгкие анимации, чат и защищённая панель управления.",
+      "descriptionEn": "This website: custom visuals, lightweight motion, chat and a protected control panel.",
+      "stack": "Vue 3 / TypeScript / Node.js / SQLite",
+      "visible": true,
+      "state": "active"
+    },
+    {
+      "id": "westweb",
+      "name": "WEST / Portfolio",
+      "category": "Web",
+      "description": "Портфолио технического администратора и модератора с общей системой статусов и обращений.",
+      "descriptionEn": "Technical administrator and moderator portfolio with shared statuses and conversations.",
+      "stack": "Vue.js / Interfaces / Chat / Status",
+      "visible": true,
+      "state": "completed",
+      "link": "https://west1kfull.github.io/"
+    },
+    {
+      "id": "axosquad-rebirth",
+      "name": "AxoSquad Rebirth",
+      "category": "Minecraft",
+      "description": "Полная техническая разработка сети: Velocity, HUB, Survival, игровые механики, верификация, роли, профили и экономика. Проект завершил работу и перенесён в архив.",
+      "descriptionEn": "Velocity + HUB + Survival network, economy, player profiles, Discord verification and team workflows. The project is closed and archived.",
+      "stack": "Paper 1.21.x / Velocity / Discord / Automation",
+      "role": "Владелец и технический разработчик",
+      "roleEn": "Owner · Technical Lead",
+      "state": "archived",
+      "alias": false,
+      "visible": true
+    },
+    {
+      "id": "nexaris-realms",
+      "name": "Nexaris Realms",
+      "category": "Minecraft",
+      "description": "Техническая разработка сети: proxy, HUB, survival, права, игровые сервисы, Discord-интеграция и автоматизация.",
+      "descriptionEn": "Proxy, HUB and Survival, permissions, Discord integrations and automation. No longer maintained by me; current status unknown.",
+      "stack": "Velocity network / Survival systems / Discord bridge / Automation",
+      "role": "Технический администратор",
+      "roleEn": "Technical Administrator",
+      "state": "unknown",
+      "alias": true,
+      "visible": true
+    },
+    {
+      "id": "velquaryn-network",
+      "name": "Velquaryn Network",
+      "category": "Systems",
+      "description": "Развитие серверной сети, настройка доступов и ролей, соединение модулей и диагностика ошибок.",
+      "descriptionEn": "Permission groups, module integrations, log diagnostics and team documentation. No longer maintained by me; current status unknown.",
+      "stack": "Permissions / Integrations / Diagnostics / Documentation",
+      "role": "Технический администратор",
+      "roleEn": "Technical Administrator",
+      "state": "unknown",
+      "alias": true,
+      "visible": true
+    },
+    {
+      "id": "astrenfall",
+      "name": "Astrenfall",
+      "category": "Minecraft",
+      "description": "Игровые интерфейсы, профили, экономика, события, инструменты модерации и журналирование.",
+      "descriptionEn": "Player profiles, economy, interfaces, events, moderation tools and logging. No longer maintained by me; current status unknown.",
+      "stack": "Player profiles / Economy / Events / Moderation tools",
+      "role": "Разработка игровых систем",
+      "roleEn": "Systems Administrator",
+      "state": "unknown",
+      "alias": true,
+      "visible": true
+    },
+    {
+      "id": "raven-district",
+      "name": "Raven District",
+      "category": "Systems",
+      "description": "Технические инструменты, структура ролей и передача сложных обращений между отделами команды.",
+      "descriptionEn": "Technical tools, staff roles, player support and escalation workflows. No longer maintained by me; current status unknown.",
+      "stack": "Staff tools / Role model / Escalations / Support",
+      "role": "Техническая поддержка и работа с командой",
+      "roleEn": "Tech / Staff Operations",
+      "state": "unknown",
+      "alias": true,
+      "visible": true
+    }
+  ]
+}

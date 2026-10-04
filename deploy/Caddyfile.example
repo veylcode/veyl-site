@@ -1,0 +1,7 @@
+# Replace example.com and set PUBLIC_ORIGIN=https://your-domain in .env.local.
+example.com {
+    encode zstd gzip
+    reverse_proxy 127.0.0.1:3001 {
+        flush_interval -1
+    }
+}
