@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const assetBase = import.meta.env.BASE_URL;
+const staticSite = import.meta.env.VITE_STATIC_SITE === "true";
 import { defineAsyncComponent, ref } from "vue";
 import BrandMark from "../components/BrandMark.vue";
 import StatusBadge from "../components/StatusBadge.vue";
@@ -169,7 +170,7 @@ async function copyDiscord() {
               class="button primary"
               @click="openChat"
             >
-              Veyl / Chat <Icon />
+              {{ staticSite ? "Telegram" : "Veyl / Chat" }} <Icon />
             </button>
             <div class="contact-links">
               <a
@@ -201,7 +202,7 @@ async function copyDiscord() {
               alt="Veyl"
               loading="lazy"
             /><StatusBadge />
-            <p>
+            <p v-if="site.state.settings.statusVisible">
               {{
                 tr(
                   site.activeStatus.description,
@@ -209,7 +210,9 @@ async function copyDiscord() {
                 )
               }}
             </p>
-            <p v-if="site.state.statusUntil">
+            <p
+              v-if="site.state.settings.statusVisible && site.state.statusUntil"
+            >
               {{ tr("До", "Until") }}
               {{
                 new Date(site.state.statusUntil).toLocaleString(
@@ -244,10 +247,16 @@ async function copyDiscord() {
     <button
       v-if="site.state.settings.chatVisible"
       class="floating-chat"
-      :aria-label="tr('Открыть Veyl / Chat', 'Open Veyl / Chat')"
+      :aria-label="
+        staticSite
+          ? tr('Написать в Telegram', 'Message on Telegram')
+          : tr('Открыть Veyl / Chat', 'Open Veyl / Chat')
+      "
       @click="openChat"
     >
-      <Icon name="chat" /><span>Veyl / Chat</span>
+      <Icon name="chat" /><span>{{
+        staticSite ? "Telegram" : "Veyl / Chat"
+      }}</span>
     </button>
     <ChatPanel v-if="chatOpen" @close="chatOpen = false" />
   </div>
