@@ -3,8 +3,8 @@ import { mkdir, mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import type { PublicSite } from "../src/types.ts";
 
-const repository = "https://github.com/veylcode/veyl-site.git";
-const publicUrl = "https://veylcode.github.io/veyl-site/";
+const repository = "https://github.com/veylcode/veylcode.github.io.git";
+const publicUrl = "https://veylcode.github.io/";
 const origin = process.env.VEYL_EXPORT_ORIGIN || "http://127.0.0.1:3001";
 const root = resolve(import.meta.dirname, "..");
 const work = resolve(root, "work");
@@ -41,16 +41,14 @@ for (const project of site.projects) {
       resolve(output, "uploads", filename),
       Buffer.from(await image.arrayBuffer()),
     );
-    project.cover = `/veyl-site/uploads/${filename}`;
-  } else if (project.cover.startsWith("/assets/")) {
-    project.cover = `/veyl-site${project.cover}`;
+    project.cover = `/uploads/${filename}`;
   }
 }
 await writeFile(resolve(output, "site.json"), JSON.stringify(site));
 await writeFile(resolve(output, ".nojekyll"), "");
 let html = await readFile(resolve(output, "index.html"), "utf8");
 html = html.replace(
-  'content="/veyl-site/assets/banner.webp"',
+  'content="/assets/banner.webp"',
   `content="${publicUrl}assets/banner.webp"`,
 );
 html = html.replace(
