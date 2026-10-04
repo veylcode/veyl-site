@@ -5,7 +5,7 @@ import rateLimit from "@fastify/rate-limit";
 import staticFiles from "@fastify/static";
 import { randomUUID } from "node:crypto";
 import { resolve } from "node:path";
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { z } from "zod";
 import { openDatabase } from "./database.ts";
 import { digest, hashPassword, newToken, verifyPassword } from "./auth.ts";
@@ -553,6 +553,39 @@ export async function buildApp(options: Options) {
     });
   }
   if (options.staticRoot && existsSync(options.staticRoot)) {
+    const publicOrigin = new URL(options.origin).origin;
+    const html = readFileSync(resolve(options.staticRoot, "index.html"), "utf8")
+      .replace(
+        'content="/assets/banner.webp"',
+        `content="${publicOrigin}/assets/banner.webp"`,
+      )
+      .replace(
+        "</head>",
+        `<link rel="canonical" href="${publicOrigin}/" /><meta property="og:url" content="${publicOrigin}/" /></head>`,
+      );
+    app.get("/", async (_request, reply) =>
+      reply.type("text/html; charset=utf-8").send(html),
+    );
+    app.get("/admin", async (_request, reply) =>
+      reply
+        .header("X-Robots-Tag", "noindex, nofollow")
+        .type("text/html; charset=utf-8")
+        .send(html),
+    );
+    app.get("/robots.txt", async (_request, reply) =>
+      reply
+        .type("text/plain")
+        .send(
+          `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\nSitemap: ${publicOrigin}/sitemap.xml\n`,
+        ),
+    );
+    app.get("/sitemap.xml", async (_request, reply) =>
+      reply
+        .type("application/xml")
+        .send(
+          `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${publicOrigin}/</loc></url></urlset>`,
+        ),
+    );
     await app.register(staticFiles, {
       root: options.staticRoot,
       dotfiles: "deny",
@@ -561,7 +594,7 @@ export async function buildApp(options: Options) {
       request.method === "GET" &&
       !request.url.startsWith("/api/") &&
       !request.url.startsWith("/uploads/")
-        ? reply.sendFile("index.html")
+        ? reply.type("text/html; charset=utf-8").send(html)
         : reply.code(404).send({ message: "Not found" }),
     );
     app.addHook("onSend", async (request, reply) => {
