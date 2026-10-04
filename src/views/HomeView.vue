@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const assetBase = import.meta.env.BASE_URL;
 import { defineAsyncComponent, ref } from "vue";
 import BrandMark from "../components/BrandMark.vue";
 import StatusBadge from "../components/StatusBadge.vue";
@@ -22,6 +23,10 @@ const chatOpen = ref(false),
   menuOpen = ref(false),
   copied = ref(false);
 function openChat() {
+  if (import.meta.env.VITE_STATIC_SITE === "true") {
+    window.location.assign(site.state.settings.telegram);
+    return;
+  }
   chatOpen.value = true;
   menuOpen.value = false;
 }
@@ -190,7 +195,7 @@ async function copyDiscord() {
           <div class="contact-status">
             <img
               class="contact-emblem"
-              src="/assets/emblem.webp"
+              :src="`${assetBase}assets/emblem.webp`"
               width="960"
               height="960"
               alt="Veyl"

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const assetBase = import.meta.env.BASE_URL;
 import { computed, ref } from "vue";
 import { useSiteStore } from "../stores/site";
 import Icon from "./Icon.vue";
@@ -57,7 +58,7 @@ const roles: Record<string, string> = {
       </div>
       <div class="featured-project" data-reveal>
         <img
-          src="/assets/banner.webp"
+          :src="`${assetBase}assets/banner.webp`"
           width="1672"
           height="941"
           loading="lazy"

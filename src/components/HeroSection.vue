@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const assetBase = import.meta.env.BASE_URL;
 import SceneBackground from "./SceneBackground.vue";
 import Icon from "./Icon.vue";
 import { useSiteStore } from "../stores/site";
@@ -89,7 +90,7 @@ onUnmounted(() => {
         <div class="orbit orbit-inner"></div>
         <span class="art-coordinate">V / CORE <span>1.0</span></span>
         <img
-          src="/assets/emblem.webp"
+          :src="`${assetBase}assets/emblem.webp`"
           width="960"
           height="960"
           alt="Veyl - ледяной V-знак"

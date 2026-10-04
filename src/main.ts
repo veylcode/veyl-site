@@ -5,10 +5,12 @@ import App from "./App.vue";
 import "./style.css";
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: "/", component: () => import("./views/HomeView.vue") },
-    { path: "/admin", component: () => import("./views/AdminView.vue") },
+    ...(import.meta.env.VITE_STATIC_SITE === "true"
+      ? []
+      : [{ path: "/admin", component: () => import("./views/AdminView.vue") }]),
     { path: "/:pathMatch(.*)*", redirect: "/" },
   ],
   scrollBehavior(to) {

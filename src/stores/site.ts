@@ -106,7 +106,9 @@ export const useSiteStore = defineStore("site", () => {
     if (authenticated.value) return;
     try {
       const response = await api<PublicSite & { revision: number }>(
-        "/api/public/site",
+        import.meta.env.VITE_STATIC_SITE === "true"
+          ? `${import.meta.env.BASE_URL}site.json`
+          : "/api/public/site",
       );
       Object.assign(state, response);
       displayStatus.value = response.status;
@@ -137,6 +139,7 @@ export const useSiteStore = defineStore("site", () => {
   }
   function connectPublic() {
     void loadPublic();
+    if (import.meta.env.VITE_STATIC_SITE === "true") return;
     publicEvents = new EventSource("/api/public/events");
     publicEvents.onmessage = () => {
       if (!authenticated.value) void loadPublic();

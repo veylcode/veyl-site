@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const assetBase = import.meta.env.BASE_URL;
 import { computed, onMounted, ref } from "vue";
 import BrandMark from "../components/BrandMark.vue";
 import Icon from "../components/Icon.vue";
@@ -89,7 +90,12 @@ onMounted(async () => {
     </div>
     <div class="entry-layout">
       <div class="entry-art">
-        <img src="/assets/emblem.webp" alt="Veyl" width="960" height="960" />
+        <img
+          :src="`${assetBase}assets/emblem.webp`"
+          alt="Veyl"
+          width="960"
+          height="960"
+        />
       </div>
       <div class="entry-copy">
         <h1>Veyl / Admin</h1>
@@ -149,7 +155,12 @@ onMounted(async () => {
           >{{ tr("Открыть сайт", "Open website") }} <Icon
         /></RouterLink>
         <div class="sidebar-owner">
-          <img src="/assets/avatar.webp" width="40" height="40" alt="Veyl" />
+          <img
+            :src="`${assetBase}assets/avatar.webp`"
+            width="40"
+            height="40"
+            alt="Veyl"
+          />
           <div>
             <strong>Veyl</strong><span>{{ tr("Владелец", "Owner") }}</span>
           </div>
@@ -257,7 +268,7 @@ onMounted(async () => {
                 <h3>{{ tr("Твой сайт", "Your website") }}</h3>
               </div>
               <img
-                src="/assets/banner.webp"
+                :src="`${assetBase}assets/banner.webp`"
                 width="1672"
                 height="941"
                 alt="Veyl"
